@@ -17,7 +17,7 @@ document.getElementById("app").innerHTML=`
 <nav><div class="wrap"><a href="#quiz">${t.quizNav}</a><a href="#results">${t.resultsNav}</a><a href="#parties">${t.partiesNav}</a><a href="#method">${t.methodNav}</a></div></nav>
 <main class="wrap">
   <section class="intro-grid"><div class="stat"><strong>${copy.questions.length}</strong>${t.issues}</div><div class="stat"><strong>${PARTIES.length}</strong>${t.profiles}</div><div class="stat"><strong>5 ${t.degrees}</strong>${t.degreesText}</div></section>
-  <section id="quiz"><h2>${t.quizTitle}</h2><p class="sub">${t.quizSub}</p><div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><span class="counter" id="counter">0 ${t.of} ${copy.questions.length}</span></div><form id="quizForm"><div id="questions"></div><div class="actions"><button class="primary" type="submit">${t.submit}</button><button class="secondary" type="button" id="reset">${t.reset}</button></div></form></section>
+  <section id="quiz"><h2>${t.quizTitle}</h2><p class="sub">${t.quizSub}</p><div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><span class="counter" id="counter">0 ${t.of} ${copy.questions.length}</span></div><form id="quizForm"><div id="questions"></div><div class="actions"><button class="primary" type="submit">${t.submit}</button><button class="secondary" type="button" id="resetButton">${t.reset}</button></div></form></section>
   <section id="results" class="hidden" aria-live="polite"><h2>${t.resultsTitle}</h2><p class="sub">${t.resultsSub}</p><div class="result-hero"><div class="matches" id="topMatches"></div><div class="all-results" id="allResults"></div></div></section>
   <section id="parties"><h2>${t.partiesTitle}</h2><p class="sub">${t.partiesSub}</p><div class="party-grid" id="partyGrid"></div></section>
   <section id="method"><h2>${t.methodTitle}</h2><div class="method"><p>${t.method1}</p><p>${t.method2}</p><p>${t.sources}: <a href="${SOURCES.n12}" target="_blank" rel="noreferrer">N12 2026</a>, <a href="https://www.gov.il/en/departments/units/central-elections-committee" target="_blank" rel="noreferrer">${locale==="he"?"ועדת הבחירות המרכזית":"Central Elections Committee"}</a>, ${t.sourceSuffix}</p></div></section>
@@ -64,7 +64,7 @@ document.getElementById("quizForm").addEventListener("submit",event=>{
   localStorage.setItem(storageKey,JSON.stringify({answers,weights}));
 });
 
-document.getElementById("reset").addEventListener("click",()=>{
+document.getElementById("resetButton").addEventListener("click",()=>{
   document.getElementById("quizForm").reset();
   document.getElementById("results").classList.add("hidden");
   localStorage.removeItem(storageKey);
